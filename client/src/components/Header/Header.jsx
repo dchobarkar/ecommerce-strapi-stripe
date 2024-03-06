@@ -13,13 +13,11 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
   const navigate = useNavigate();
+
   const handleScroll = () => {
     const offset = window.scrollY;
-    if (offset > 200) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
-    }
+    if (offset > 200) setScrolled(true);
+    else setScrolled(false);
   };
 
   useEffect(() => {
@@ -37,9 +35,11 @@ const Header = () => {
             <li onClick={() => navigate("/about")}>About</li>
             <li>Categories</li>
           </ul>
+
           <div className="center" onClick={() => navigate("/")}>
-            JSDEVSTORE.
+            DARSHANDEVSTORE.
           </div>
+
           <div className="right">
             <TbSearch onClick={() => setSearchModal(true)} />
             <AiOutlineHeart />
@@ -50,7 +50,9 @@ const Header = () => {
           </div>
         </div>
       </header>
+
       {searchModal && <Search setSearchModal={setSearchModal} />}
+
       {showCart && <Cart />}
     </>
   );

@@ -1,8 +1,5 @@
 import { useContext, useState } from "react";
-import { Context } from "../../utils/context";
 import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
-import RelatedProducts from "./RelatedProducts/RelatedProducts";
 import {
   FaFacebookF,
   FaTwitter,
@@ -11,12 +8,16 @@ import {
   FaPinterest,
   FaCartPlus,
 } from "react-icons/fa";
+
+import RelatedProducts from "./RelatedProducts/RelatedProducts";
+import { Context } from "../../utils/context";
+import useFetch from "../../hooks/useFetch";
 import "./SingleProduct.scss";
 
 const SingleProduct = () => {
   const [quantity, setQuantity] = useState(1);
-  const { id } = useParams();
   const { handleAddToCart } = useContext(Context);
+  const { id } = useParams();
   const { data } = useFetch(`/api/products?populate=*&[filters][id]=${id}`);
 
   const decrement = () => {
@@ -25,6 +26,7 @@ const SingleProduct = () => {
       return prevState - 1;
     });
   };
+
   const increment = () => {
     setQuantity((prevState) => prevState + 1);
   };
@@ -45,6 +47,7 @@ const SingleProduct = () => {
               alt=""
             />
           </div>
+
           <div className="right">
             <span className="name">{product.title}</span>
             <span className="price">&#8377;{product.price}</span>
@@ -56,6 +59,7 @@ const SingleProduct = () => {
                 <span>{quantity}</span>
                 <span onClick={increment}>+</span>
               </div>
+
               <button
                 className="add-to-cart-button"
                 onClick={() => {
@@ -69,6 +73,7 @@ const SingleProduct = () => {
             </div>
 
             <span className="divider" />
+
             <div className="info-item">
               <span className="text-bold">
                 Category:{" "}
@@ -87,6 +92,7 @@ const SingleProduct = () => {
             </div>
           </div>
         </div>
+
         <RelatedProducts
           productId={id}
           categoryId={product.categories.data[0].id}

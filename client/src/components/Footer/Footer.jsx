@@ -16,23 +16,27 @@ const Footer = () => {
             beatae vitae dicta sunt explicabo eaque ipsa quae ab illo.
           </div>
         </div>
+
         <div className="col">
           <div className="title">Contact</div>
           <div className="c-item">
             <FaLocationArrow />
             <div className="text">
-              Shop No. 103, Gat No. 75, Swastik Spira, Chikhali, Pune, 416202
+              Shop No. 103, Gat No. 75, Swastik Spira, Chikhali, Pune, 416202{" "}
             </div>
           </div>
+
           <div className="c-item">
             <FaMobileAlt />
             <div className="text">Phone: 9194 041 6882</div>
           </div>
+
           <div className="c-item">
             <FaEnvelope />
             <div className="text">Email: store@jsdev.com</div>
           </div>
         </div>
+
         <div className="col">
           <div className="title">Categories</div>
           <span className="text">Headphones</span>
@@ -42,6 +46,7 @@ const Footer = () => {
           <span className="text">Home Theatre</span>
           <span className="text">Projectors</span>
         </div>
+
         <div className="col">
           <div className="title">Pages</div>
           <span className="text">Home</span>
@@ -52,6 +57,7 @@ const Footer = () => {
           <span className="text">Contact Us</span>
         </div>
       </div>
+
       <div className="bottom-bar">
         <div className="bottom-bar-content">
           <span className="text">

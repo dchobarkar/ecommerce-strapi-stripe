@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
-import { Context } from "../../../utils/context";
 import { MdClose } from "react-icons/md";
 
+import { Context } from "../../../utils/context";
 import "./CartItem.scss";
+
 const CartItem = () => {
   const { cartItems, handleRemoveFromCart, handleCartProductQuantity } =
     useContext(Context);
@@ -17,14 +18,17 @@ const CartItem = () => {
                 process.env.REACT_APP_STRIPE_APP_DEV_URL +
                 item.attributes.image.data[0].attributes.url
               }
+              alt=""
             />
           </div>
+
           <div className="prod-details">
             <span className="name">{item.attributes.title}</span>
             <MdClose
               className="close-btn"
               onClick={() => handleRemoveFromCart(item)}
             />
+
             <div className="quantity-buttons">
               <span onClick={() => handleCartProductQuantity("dec", item)}>
                 -
@@ -34,6 +38,7 @@ const CartItem = () => {
                 +
               </span>
             </div>
+
             <div className="text">
               <span>{item.attributes.quantity}</span>
               <span>x</span>
